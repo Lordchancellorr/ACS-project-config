@@ -1,6 +1,6 @@
 #!/bin/bash
 mkdir /var/www/
-sudo mount -t efs -o tls,accesspoint=fsap-0a979158642e48acd fs-0007a24cc611b2867:/ /var/www/
+sudo mount -t efs -o tls,accesspoint=fsap-03cbee69b56df030d fs-0007a24cc611b2867:/  /var/www/
 yum install -y httpd 
 systemctl start httpd
 systemctl enable httpd
@@ -20,15 +20,6 @@ touch healthstatus
 sed -i "s/localhost/database.cb66spftc5kd.us-east-1.rds.amazonaws.com/g" wp-config.php 
 sed -i "s/username_here/ACSadmin/g" wp-config.php 
 sed -i "s/password_here/admin12345/g" wp-config.php 
-sed -i "s/database_name_here/wordpressdb/g" wp-config.php 
+sed -i "s/database_name_here/wordpressdb/g" wp-config.php
 chcon -t httpd_sys_rw_content_t /var/www/html/ -R
 systemctl restart httpd
-
-
-
-
-
-
-
-
-
