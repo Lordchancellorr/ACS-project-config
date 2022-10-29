@@ -72,8 +72,11 @@ systemctl enable chronyd
 ## configure selinux policies for the webservers and nginx servers
 ```
 setsebool -P httpd_can_network_connect=1
+
 setsebool -P httpd_can_network_connect_db=1
+
 setsebool -P httpd_execmem=1
+
 setsebool -P httpd_use_nfs 1
 ```
 ## this section will instll amazon efs utils for mounting the target on the Elastic file system
